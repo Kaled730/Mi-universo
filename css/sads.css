@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+#heart-container {
+    position: relative;
+    transform-style: preserve-3d;
+    width: 0;
+    height: 0;
+}
+
+.ui_love_word {
+    color: #ea80b0;
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif;
+    position: absolute;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    text-shadow: 
+        0 0 10px #ea80b0,
+        0 0 20px #ea80b0,
+        0 0 30px #fff;
+
+    opacity: 0;
+    animation: heart-flight 5s infinite ease-in-out;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes heart-flight {
+    0% {
+        transform: translate3d(var(--x), var(--y), -500px) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate3d(var(--x), var(--y), 100px) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(var(--x), var(--y), -500px) scale(0.5);
+        opacity: 0;
+    }
+}
